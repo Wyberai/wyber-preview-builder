@@ -48,7 +48,7 @@ app.post('/build', async (req, res) => {
     }, null, 2))
 
     // Write vite config
-    fs.writeFileSync(path.join(workPath, 'vite.config.ts'), `import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\nexport default defineConfig({ plugins: [react()], build: { outDir: 'dist', sourcemap: false } })`)
+    fs.writeFileSync(path.join(workPath, 'vite.config.ts'), `import { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\nexport default defineConfig({ plugins: [react()], base: './', build: { outDir: 'dist', assetsDir: 'assets', sourcemap: false } })`)
 
     // Write tsconfig
     fs.writeFileSync(path.join(workPath, 'tsconfig.json'), JSON.stringify({ compilerOptions: { target: 'ES2020', lib: ['ES2020','DOM','DOM.Iterable'], module: 'ESNext', skipLibCheck: true, moduleResolution: 'bundler', allowImportingTsExtensions: true, noEmit: true, jsx: 'react-jsx', strict: false }, include: ['src'] }, null, 2))
