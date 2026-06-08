@@ -75,7 +75,7 @@ app.post('/build', async (req, res) => {
     }
 
     execSync('npm install --no-audit --no-fund', { cwd: workPath, timeout: 120000, stdio: 'pipe' })
-    execSync('npm run build', { cwd: workPath, timeout: 60000, stdio: 'pipe' })
+    execSync('npx vite build --mode development', { cwd: workPath, timeout: 60000, stdio: 'pipe' })
 
     fs.mkdirSync(buildPath, { recursive: true })
 
